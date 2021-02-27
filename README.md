@@ -7,7 +7,7 @@ Basic flashcard functionality that shows the question and answer when tapped.
 
 ### App Walk-though
 
-<img src="https://submissions.us-east-1.linodeobjects.com/mobile_app_design/eg9BDa0q.gif" width=200><br>
+<img src="https://i.imgur.com/zqhUa54.mp4" width=200><br>
 
 ## Required
 - [X] Create New Project in Android Studio

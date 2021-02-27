@@ -6,26 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/flashcard_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:visibility="visible"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:text="Who is the 44th president of the United States?"/>
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
 
-    <TextView
-        android:id="@+id/flashcard_answer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:visibility="gone"
-        android:textSize="50sp"
-        android:gravity="center"
-        android:text="Barack Obama"/>
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/question_card"
+            android:visibility="visible"
+            android:textSize="50sp"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="When did \nWWII end?"/>
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/answer_card"
+            android:visibility="gone"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="1945"/>
+
+        <TextView
+            android:id="@+id/answer1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/answer_card"
+            android:visibility="visible"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="1942"/>
+        <TextView
+            android:id="@+id/answer2"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/answer_card"
+            android:visibility="visible"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="1945"/>
+
+        <TextView
+            android:id="@+id/answer3"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/answer_card"
+            android:visibility="visible"
+            android:textSize="50sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:text="1939"/>
+
+    </LinearLayout>
+
+<!--    <Button-->
+<!--        android:id="@+id/change_question"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:background="@drawable/question_card"/>-->
 
 </RelativeLayout>

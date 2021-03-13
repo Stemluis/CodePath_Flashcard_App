@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/add_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <TextView
-            android:id="@+id/question"
+        <EditText
+            android:id="@+id/input_question"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="15dp"
@@ -24,10 +22,12 @@
             android:gravity="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:text=""/>
+            android:text=""
+            android:textColorHint="@color/white"
+            android:hint="Enter question here"/>
 
-        <TextView
-            android:id="@+id/answer1"
+        <EditText
+            android:id="@+id/input_answer1"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginRight="15dp"
@@ -39,10 +39,12 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter correct answer here"/>
 
-        <TextView
-            android:id="@+id/answer2"
+        <EditText
+            android:id="@+id/input_answer2"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginRight="15dp"
@@ -54,10 +56,12 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
 
-        <TextView
-            android:id="@+id/answer3"
+        <EditText
+            android:id="@+id/input_answer3"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginRight="15dp"
@@ -69,10 +73,12 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:visibility="visible"/>
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
 
-        <TextView
-            android:id="@+id/answer4"
+        <EditText
+            android:id="@+id/input_answer4"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:layout_marginRight="15dp"
@@ -84,46 +90,29 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="25sp"
-            android:visibility="visible"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="15dp"
-            android:padding="0dp"
-            android:elevation="1dp"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/previous_question"
-                android:background="@drawable/previous"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp" />
-
-            <Button
-                android:id="@+id/edit_question"
-                android:background="@drawable/edit"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp" />
-
-            <Button
-                android:id="@+id/add_question"
-                android:background="@drawable/add"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp" />
-
-            <Button
-                android:id="@+id/next_question"
-                android:background="@drawable/next"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp" />
-
-        </LinearLayout>
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/save"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="15dp"
+        android:onClick="submitData"/>
+
+    <Button
+        android:id="@+id/close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/close"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        />
 </RelativeLayout>

@@ -26,7 +26,7 @@ Basic flashcard functionality that shows the question and answer when tapped.
 
 ### App Walk-though
 
-<img src="https://s4.gifyu.com/images/lab_2.gif" width=400><br>
+<img src="https://s4.gifyu.com/images/lab_2.gif" width=200><br>
 
 ## Required
 - [X] User can click on a ‘+’ button that takes the user to new ‘Add Card Screen’

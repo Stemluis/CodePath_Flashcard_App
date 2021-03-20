@@ -84,6 +84,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="-30dp"
+            android:layout_marginBottom="8dp"
             android:paddingTop="35dp"
             android:elevation="2dp"
             android:background="@drawable/answer"
@@ -94,25 +95,37 @@
             android:textColorHint="@color/grey"
             android:hint="Enter incorrect answer here"/>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layoutDirection="ltr"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_save"
+                android:layout_margin="15dp"/>
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_delete"
+                android:layout_margin="15dp"/>
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_close"
+                android:layout_margin="15dp"
+                />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/save"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/save"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_margin="15dp"
-        android:onClick="submitData"/>
-
-    <Button
-        android:id="@+id/close"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/close"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="15dp"
-        />
 </RelativeLayout>

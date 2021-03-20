@@ -7,7 +7,7 @@ Basic flashcard functionality that shows the question and answer when tapped.
 
 ### App Walk-though
 
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://s4.gifyu.com/images/Lab-3.gif" width=200><br>
 
 ## Required
 - [X] User can create a card and still see their created card when the app is relaunched.

@@ -2,16 +2,22 @@ package com.example.flashcardapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.plattysoft.leonids.ParticleSystem;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -25,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
     // For logging purposes
     private static final String TAG = "MyActivity";
 
-    int questionIndex = 0;
+    CountDownTimer countDownTimer;
 
-    Boolean rand;
+    int questionIndex = 0;
 
     FlashcardDatabase flashcardDatabase;
     List<Flashcard> allFlashcards;
@@ -41,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         flashcardDatabase.initFirstCard();
 
         questionIndex = getIntent().getIntExtra("index", 0);
+
+        countDownTimer = new CountDownTimer(16000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                ((TextView) findViewById(R.id.timer)).setText("" + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+            }
+        };
 
         updateElements();
         buttons();
@@ -113,24 +128,30 @@ public class MainActivity extends AppCompatActivity {
         // The function sorts the answers in a random order
         answers = randomizeAnswers(answers);
 
-        // The function sorts the questions in a random order
-//        if(rand) {
-//            randomizeQuestions();
-//            rand = !rand;
-//        }
-
         // Allows user to toggle between the question and answer
         textElements[0].setText(allFlashcards.get(questionIndex).getQuestion());
         AtomicReference<Boolean> e = new AtomicReference<>(true);
         textElements[0].setOnClickListener(v -> {
             e.set(!e.get());
+
+            int cx = textElements[0].getWidth() / 2;
+            int cy = textElements[0].getHeight() / 2;
+
+            // create the animator for this view (the start radius is zero)
+            Animator anim = ViewAnimationUtils.createCircularReveal(textElements[0], cx, cy, 0f, (float) Math.hypot(cx, cy));
+
             if(e.get()) {
                 textElements[0].setBackground(getDrawable(R.drawable.question));
                 textElements[0].setText(allFlashcards.get(questionIndex).getQuestion());
+                startTimer();
             }else{
                 textElements[0].setBackground(getDrawable(R.drawable.question_answer));
                 textElements[0].setText(allFlashcards.get(questionIndex).getAnswer());
+                countDownTimer.cancel();
             }
+
+            anim.setDuration(500);
+            anim.start();
         });
 
 
@@ -153,6 +174,12 @@ public class MainActivity extends AppCompatActivity {
 
                 textElements[i + 1].setOnClickListener(v -> {
                     textElements[finalI + 1].setBackground(getDrawable(R.drawable.answer_right));
+
+                    countDownTimer.cancel();
+
+                    new ParticleSystem(MainActivity.this, 100, R.drawable.confetti, 3000)
+                            .setSpeedRange(0.2f, 0.5f)
+                            .oneShot(textElements[finalRightAnswer+1], 150);
                 });
             } else {
                 textElements[i + 1].setText(answers[i]);
@@ -160,9 +187,12 @@ public class MainActivity extends AppCompatActivity {
                 textElements[i + 1].setOnClickListener(v -> {
                     textElements[finalI + 1].setBackground(getDrawable(R.drawable.answer_wrong));
                     textElements[finalRightAnswer + 1].setBackground(getDrawable(R.drawable.answer_right));
+
+                    countDownTimer.cancel();
                 });
             }
         }
+        startTimer();
     }
 
     private String[] randomizeAnswers(String[] answers) {
@@ -188,6 +218,10 @@ public class MainActivity extends AppCompatActivity {
             return s;
     }
 
+    private void startTimer() {
+        countDownTimer.cancel();
+        countDownTimer.start();
+    }
 
     public void buttons(){
         Button previous = findViewById(R.id.previous_question);
@@ -197,23 +231,68 @@ public class MainActivity extends AppCompatActivity {
         Button next = findViewById(R.id.next_question);
 
         previous.setOnClickListener(v -> {
+            final Animation leftInAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.left_in);
+            final Animation rightOutAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.right_out);
+
             if(allFlashcards.size()>1) {
-                if (questionIndex == 0)
-                    questionIndex = allFlashcards.size() - 1;
-                else
-                    questionIndex -= 1;
-                updateElements();
+                if(allFlashcards.size()>1) {
+
+                    rightOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                        @Override
+                        public void onAnimationStart(Animation animation) {
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animation animation) {
+                            findViewById(R.id.card).startAnimation(leftInAnim);
+                            if (questionIndex == 0)
+                                questionIndex = allFlashcards.size() - 1;
+                            else
+                                questionIndex -= 1;
+                            updateElements();
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animation animation) {
+                        }
+                    });
+
+                    findViewById(R.id.card).startAnimation(rightOutAnim);
+                }
+
             }
         });
 
         next.setOnClickListener(v -> {
+            final Animation leftOutAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.left_out);
+            final Animation rightInAnim = AnimationUtils.loadAnimation(v.getContext(), R.anim.right_in);
+
             if(allFlashcards.size()>1) {
-                if (questionIndex == allFlashcards.size() - 1)
-                    questionIndex = 0;
-                else
-                    questionIndex = getRandom(questionIndex, allFlashcards.size());
-//                    questionIndex += 1;
-                updateElements();
+
+                leftOutAnim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                        findViewById(R.id.card).startAnimation(rightInAnim);
+
+                        if (questionIndex == allFlashcards.size() - 1)
+                            questionIndex = 0;
+                        else
+                            questionIndex = getRandom(questionIndex, allFlashcards.size());
+
+                        updateElements();
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+                });
+
+                findViewById(R.id.card).startAnimation(leftOutAnim);
             }
         });
 
@@ -221,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
             intent.putExtra("mode", "add");
             startActivityForResult(intent, 1);
+            overridePendingTransition(R.anim.right_in,R.anim.left_out);
         });
 
         edit.setOnClickListener(v -> {
@@ -228,6 +308,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("mode","edit");
             intent.putExtra("index", questionIndex);
             startActivityForResult(intent, 1);
+            overridePendingTransition(R.anim.right_in,R.anim.left_out);
         });
 
         final Boolean[] e = {true};

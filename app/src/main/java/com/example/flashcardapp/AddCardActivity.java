@@ -93,6 +93,7 @@ public class AddCardActivity extends AppCompatActivity{
 
         save.setOnClickListener(v -> {
             submitData();
+            overridePendingTransition(R.anim.right_in,R.anim.left_out);
         });
 
         delete.setOnClickListener(v -> {
@@ -106,6 +107,7 @@ public class AddCardActivity extends AppCompatActivity{
 
         close.setOnClickListener(v -> {
             finish();
+            overridePendingTransition(R.anim.right_in,R.anim.left_out);
         });
     }
 }

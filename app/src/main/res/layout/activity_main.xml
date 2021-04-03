@@ -7,87 +7,141 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="20dp">
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/question"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/question_card"
-            android:visibility="visible"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="50sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textColor="@color/white"
+            android:layout_height="150dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:padding="10dp"
+            android:elevation="7dp"
+            android:background="@drawable/question"
             android:gravity="center"
-            android:text="Who is the 44th president of the United States?"/>
-
-        <TextView
-            android:id="@+id/answer1"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/answer_card"
-            android:visibility="visible"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="40sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textColor="@color/black"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/answer2"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/answer_card"
-            android:visibility="visible"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="40sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textColor="@color/black"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/answer3"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/answer_card"
-            android:visibility="visible"
-            android:autoSizeTextType="uniform"
-            android:autoSizeMinTextSize="12sp"
-            android:autoSizeMaxTextSize="40sp"
-            android:autoSizeStepGranularity="2sp"
-            android:textColor="@color/black"
-            android:gravity="center"/>
-
-        <TextView
-            android:id="@+id/answer4"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/answer_card"
-            android:visibility="gone"
-            android:textSize="50sp"
             android:textColor="@color/white"
-            android:gravity="center"/>
+            android:textSize="30sp"
+            android:text=""/>
+
+        <LinearLayout
+            android:id="@+id/answers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-30dp"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/answer1"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="0dp"
+                android:paddingTop="35dp"
+                android:elevation="5dp"
+                android:background="@drawable/answer"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/answer2"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-30dp"
+                android:paddingTop="35dp"
+                android:elevation="4dp"
+                android:background="@drawable/answer"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/answer3"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-30dp"
+                android:paddingTop="35dp"
+                android:elevation="3dp"
+                android:background="@drawable/answer"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/answer4"
+                android:layout_width="match_parent"
+                android:layout_height="121dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/answer"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:paddingTop="35dp"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="5dp"
+            android:elevation="-1dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/previous_question"
+                android:background="@drawable/button_previous"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/edit_question"
+                android:background="@drawable/button_edit"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/toggle_visibility"
+                android:background="@drawable/button_invisible"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/add_question"
+                android:background="@drawable/button_add"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+            <Button
+                android:id="@+id/next_question"
+                android:background="@drawable/button_next"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/change_question"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/question_card"/>
 
 </RelativeLayout>

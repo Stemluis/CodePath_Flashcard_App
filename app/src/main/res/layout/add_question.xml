@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/add_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/input_question"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:elevation="7dp"
+            android:background="@drawable/question"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text=""
+            android:textColorHint="@color/white"
+            android:hint="Enter question here"/>
+
+        <EditText
+            android:id="@+id/input_answer1"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-30dp"
+            android:paddingTop="35dp"
+            android:elevation="5dp"
+            android:background="@drawable/answer"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter correct answer here"/>
+
+        <EditText
+            android:id="@+id/input_answer2"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-30dp"
+            android:paddingTop="35dp"
+            android:elevation="4dp"
+            android:background="@drawable/answer"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
+
+        <EditText
+            android:id="@+id/input_answer3"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-30dp"
+            android:paddingTop="35dp"
+            android:elevation="3dp"
+            android:background="@drawable/answer"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
+
+        <EditText
+            android:id="@+id/input_answer4"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="8dp"
+            android:paddingTop="35dp"
+            android:elevation="2dp"
+            android:background="@drawable/answer"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:visibility="visible"
+            android:textColorHint="@color/grey"
+            android:hint="Enter incorrect answer here"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layoutDirection="ltr"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_save"
+                android:layout_margin="15dp"/>
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_delete"
+                android:layout_margin="15dp"/>
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/button_close"
+                android:layout_margin="15dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

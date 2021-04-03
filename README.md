@@ -7,7 +7,7 @@ Basic flashcard functionality that shows the question and answer when tapped.
 
 ### App Walk-though
 
-<img src="https://s4.gifyu.com/images/Lab-4.gif" width=200><br>
+<img src="https://s4.gifyu.com/images/Lab-490f9a941382c4730.gif" width=200><br>
 
 ## Required
 - [X] User sees a transition animation when going from the main screen to the add card screen.
